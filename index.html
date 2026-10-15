@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warkop GenZ — kelompok 2</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            coffee: {
+              50: '#FDFBF7',
+              100: '#F5EFE6',
+              200: '#E8DFD8',
+              300: '#D5C3B0',
+              600: '#8C6D53',
+              800: '#4A3525',
+              900: '#2D1E12',
+              dark: '#1C130D'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <!-- menghubungkan ke style.css -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-coffee-50 text-coffee-900 antialiased selection:bg-coffee-300 selection:text-coffee-900">
+
+  <!-- Notification / Modal Container -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-coffee-900 text-coffee-50 px-6 py-3 rounded-2xl shadow-xl flex items-center space-x-3 text-sm font-medium">
+    <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+    <span id="toast-msg">Pesanan berhasil dikirim!</span>
+  </div>
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-[#F5EFE6]/90 backdrop-blur-md border-b border-coffee-200/50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#atas" class="flex items-center space-x-2 text-2xl font-serif font-bold text-coffee-900 tracking-tight">
+        <span class="w-8 h-8 rounded-full bg-coffee-800 flex items-center justify-center text-white text-sm font-sans">☕</span>
+        <span>Warkop GenZ</span>
+      </a>
+      
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-coffee-800">
+        <a href="#atas" class="hover:text-coffee-600 transition">Beranda</a>
+        <a href="#menu" class="hover:text-coffee-600 transition">Menu</a>
+        <a href="#coffee bean" class="hover:text-coffee-600 transition">Coffee Bean Pilihan</a>
+        <a href="#proses" class="hover:text-coffee-600 transition">Proses Sangrai</a>
+        <a href="#kunjungi" class="hover:text-coffee-600 transition">Kunjungi</a>
+      </nav>
+
+      <div class="flex items-center space-x-4">
+        <a href="#kunjungi" class="hidden sm:inline-flex bg-coffee-800 hover:bg-coffee-900 text-white px-5 py-2.5 rounded-full text-sm font-medium transition shadow-sm hover:shadow">
+          Pesan coffee bean
+        </a>
+        <button id="mobile-menu-btn" aria-label="Buka Menu" class="md:hidden text-coffee-900 p-2 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#F5EFE6] border-b border-coffee-200 px-6 py-4 space-y-3">
+      <a href="#atas" class="block text-coffee-800 font-medium py-1">Beranda</a>
+      <a href="#menu" class="block text-coffee-800 font-medium py-1">Menu</a>
+      <a href="#coffee bean" class="block text-coffee-800 font-medium py-1">coffee bean Pilihan</a>
+      <a href="#proses" class="block text-coffee-800 font-medium py-1">Proses Sangrai</a>
+      <a href="#kunjungi" class="block text-coffee-800 font-medium py-1">Kunjungi</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main id="atas">
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-coffee-900 text-white">
+      <!-- Background Image Overlay with Warm Coffee Theme -->
+      <div class="absolute inset-0 opacity-40 mix-blend-overlay">
+        <img src="img/logo.png" style="height: 100vh;" alt="Coffee background" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-r from-coffee-950 via-coffee-900/80 to-transparent"></div>
+
+      <div class="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center" style="display:flex; gap:10rem;">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-amber-200 border border-white/10">
+            <span>✨ Sangrai Kecil · 5 kg per batch · Indonesia</span>
+          </div>
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-extrabold tracking-tight leading-tight">
+            Savor the <span class="italic font-normal text-amber-200">Perfect Brew!</span>
+          </h1>
+          <p class="text-coffee-200 text-lg sm:text-xl font-light max-w-xl leading-relaxed">
+            Kami menyangrai coffee bean kopi pilihan dari Gayo, Toraja, Flores, dan Kintamani setiap pagi, lalu menyeduhnya di kedai yang sama. Segar, otentik, dan penuh cerita.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="#menu" class="bg-amber-100 hover:bg-white text-coffee-900 px-8 py-3.5 rounded-full font-semibold transition shadow-lg transform hover:-translate-y-0.5">
+              Lihat Menu
+            </a>
+            <a href="#proses" class="border border-white/30 hover:bg-white/10 text-white px-8 py-3.5 rounded-full font-semibold transition">
+              Cara Menyangrai
+            </a>
+          </div>
+        </div>
+        <img src="img/logo.png" alt="Latte Art Cup" style="width: 35%; height: 100 pixel; " class="w-full h-full object-cover hover:scale-105 transition duration-700">
+      </div>
+        
+            
+    </section>
+
+    <!-- Features / Categories Section -->
+    <section class="py-16 bg-[#F5EFE6] border-b border-coffee-200/50">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <p class="text-xs uppercase tracking-widest text-coffee-600 font-bold mb-2">Features</p>
+          <h2 class="text-3xl font-serif font-bold text-coffee-900">Pilihan Kategori Favorit</h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="bg-coffee-50 hover:bg-white p-6 rounded-3xl text-center transition shadow-sm hover:shadow-md border border-coffee-200/60 group">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-coffee-200/50 flex items-center justify-center text-3xl group-hover:scale-110 transition">
+              ☕
+            </div>
+            <h3 class="font-serif font-bold text-lg mb-1 text-coffee-900">Espresso</h3>
+            <p class="text-xs text-coffee-600">Pekat, berkarakter, dan nikmat seketika.</p>
+          </div>
+          <div class="bg-coffee-50 hover:bg-white p-6 rounded-3xl text-center transition shadow-sm hover:shadow-md border border-coffee-200/60 group">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-coffee-200/50 flex items-center justify-center text-3xl group-hover:scale-110 transition">
+              🥛
+            </div>
+            <h3 class="font-serif font-bold text-lg mb-1 text-coffee-900">Latte</h3>
+            <p class="text-xs text-coffee-600">Paduan espresso dan susu segar lembut.</p>
+          </div>
+          <div class="bg-coffee-50 hover:bg-white p-6 rounded-3xl text-center transition shadow-sm hover:shadow-md border border-coffee-200/60 group">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-coffee-200/50 flex items-center justify-center text-3xl group-hover:scale-110 transition">
+              🍵
+            </div>
+            <h3 class="font-serif font-bold text-lg mb-1 text-coffee-900">V60 Manual</h3>
+            <p class="text-xs text-coffee-600">Clean cup, menonjolkan aroma buah & bunga.</p>
+          </div>
+          <div class="bg-coffee-50 hover:bg-white p-6 rounded-3xl text-center transition shadow-sm hover:shadow-md border border-coffee-200/60 group">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-coffee-200/50 flex items-center justify-center text-3xl group-hover:scale-110 transition">
+              🧊
+            </div>
+            <h3 class="font-serif font-bold text-lg mb-1 text-coffee-900">Cold Brew</h3>
+            <p class="text-xs text-coffee-600">Diseduh dingin belasan jam, menyegarkan hari.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu & Brew Interactive Section -->
+    <section class="py-20 bg-coffee-50" id="menu">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <p class="text-xs uppercase tracking-widest text-coffee-600 font-bold mb-2">Menu Kedai</p>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-coffee-900">Pilih Cara Seduhnya.</h2>
+          </div>
+          <p class="text-coffee-700 max-w-md mt-4 md:mt-0 text-sm">
+            Setiap menu punya resep tetap. Angkanya sama dengan yang kami pakai di bar, jadi bisa dicoba ulang di rumah.
+          </p>
+        </div>
+
+        <!-- Tab Buttons -->
+        <div class="flex flex-wrap gap-3 mb-8" role="tablist" aria-label="Metode seduh">
+          <button role="tab" id="tab-espresso" aria-selected="true" data-k="espresso" class="tab-btn px-6 py-3 rounded-full text-sm font-semibold transition bg-coffee-900 text-white shadow">Espresso</button>
+          <button role="tab" id="tab-v60" aria-selected="false" data-k="v60" class="tab-btn px-6 py-3 rounded-full text-sm font-semibold transition bg-white text-coffee-800 border border-coffee-200 hover:bg-coffee-100">V60</button>
+          <button role="tab" id="tab-tubruk" aria-selected="false" data-k="tubruk" class="tab-btn px-6 py-3 rounded-full text-sm font-semibold transition bg-white text-coffee-800 border border-coffee-200 hover:bg-coffee-100">Tubruk</button>
+          <button role="tab" id="tab-susu" aria-selected="false" data-k="susu" class="tab-btn px-6 py-3 rounded-full text-sm font-semibold transition bg-white text-coffee-800 border border-coffee-200 hover:bg-coffee-100">Kopi Susu Aren</button>
+        </div>
+
+        <!-- Tab Panel Content -->
+        <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-coffee-200/80 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center" role="tabpanel" aria-live="polite">
+          <div class="lg:col-span-7 space-y-4">
+            <h3 id="b-name" class="text-3xl font-serif font-bold text-coffee-900">Espresso</h3>
+            <p id="b-desc" class="text-coffee-700 text-base leading-relaxed"></p>
+            <div id="b-price" class="text-2xl font-serif font-bold text-coffee-800 pt-2"></div>
+          </div>
+          <div class="lg:col-span-5 bg-coffee-50 p-6 rounded-2xl border border-coffee-200/60">
+            <h4 class="text-xs uppercase font-bold tracking-wider text-coffee-600 mb-4">Spesifikasi Seduh</h4>
+            <dl id="b-specs" class="space-y-3 text-sm"></dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-[#F5EFE6] border-y border-coffee-200/60">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-6 space-y-6">
+            <div class="inline-block bg-coffee-200/60 px-3 py-1 rounded-full text-xs font-semibold text-coffee-800 uppercase tracking-wider">Mengapa Kami?</div>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-coffee-900">Why Choose Us?</h2>
+            <p class="text-coffee-700 leading-relaxed text-sm sm:text-base">
+              Kami percaya bahwa kopi terbaik lahir dari kesegaran coffee bean yang baru disangrai dan ketulusan petani lokal Indonesia. Di sini, setiap cangkir diracik presisi tanpa kompromi.
+            </p>
+            <div class="grid grid-cols-2 gap-6 pt-4">
+              <div class="bg-white p-6 rounded-2xl shadow-sm border border-coffee-200/60">
+                <p class="text-3xl font-serif font-bold text-coffee-900 mb-1">200+</p>
+                <p class="text-xs text-coffee-600">Fresh Roasts per Minggu untuk kepuasan pelanggan.</p>
+              </div>
+              <div class="bg-white p-6 rounded-2xl shadow-sm border border-coffee-200/60">
+                <p class="text-3xl font-serif font-bold text-coffee-900 mb-1">100%</p>
+                <p class="text-xs text-coffee-600">coffee bean kopi asli Nusantara pilihan petani lokal.</p>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-6 flex justify-center">
+            <div class="relative w-full max-w-lg aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-coffee-900">
+              <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80" alt="Coffee Pour Over" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-coffee-950/80 via-transparent to-transparent flex items-end p-6">
+                <p class="text-white text-sm font-medium italic">"Setiap coffee bean bercerita tentang tanah kelahirannya."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Asal coffee bean / Origins Section -->
+    <section class="py-20 bg-coffee-50" id="coffee bean">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <p class="text-xs uppercase tracking-widest text-coffee-600 font-bold mb-2">Asal coffee bean</p>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-coffee-900">Empat kebun, empat karakter.</h2>
+          </div>
+          <p class="text-coffee-700 max-w-md mt-4 md:mt-0 text-sm">
+            Garis warna di atas tiap kartu menunjukkan tingkat sangrai yang kami pilih untuk coffee bean tersebut.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Gayo -->
+          <article class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition border border-coffee-200/80 relative overflow-hidden group">
+            <div class="absolute top-0 left-0 right-0 h-2 bg-amber-700"></div>
+            <h3 class="font-serif font-bold text-xl text-coffee-900 mb-1 mt-2">Gayo, Aceh</h3>
+            <div class="text-xs font-mono text-coffee-600 mb-4 bg-coffee-50 inline-block px-2.5 py-1 rounded-md">1.300–1.500 mdpl · Giling basah</div>
+            <p class="text-coffee-700 text-sm leading-relaxed">Cokelat pekat, rempah, dan sedikit rasa herbal. Body tebal dan manis tertahan di akhir.</p>
+          </article>
+          <!-- Toraja -->
+          <article class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition border border-coffee-200/80 relative overflow-hidden group">
+            <div class="absolute top-0 left-0 right-0 h-2 bg-amber-900"></div>
+            <h3 class="font-serif font-bold text-xl text-coffee-900 mb-1 mt-2">Kalosi, Toraja</h3>
+            <div class="text-xs font-mono text-coffee-600 mb-4 bg-coffee-50 inline-block px-2.5 py-1 rounded-md">1.400–1.800 mdpl · Giling basah</div>
+            <p class="text-coffee-700 text-sm leading-relaxed">Kayu manis, tembakau manis, dan kakao. Asam rendah, sangat cocok dipadu dengan susu.</p>
+          </article>
+          <!-- Flores -->
+          <article class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition border border-coffee-200/80 relative overflow-hidden group">
+            <div class="absolute top-0 left-0 right-0 h-2 bg-amber-600"></div>
+            <h3 class="font-serif font-bold text-xl text-coffee-900 mb-1 mt-2">Bajawa, Flores</h3>
+            <div class="text-xs font-mono text-coffee-600 mb-4 bg-coffee-50 inline-block px-2.5 py-1 rounded-md">1.200–1.600 mdpl · Natural</div>
+            <p class="text-coffee-700 text-sm leading-relaxed">Buah merah, madu, dan sedikit cokelat susu. Paling ramah untuk seduhan V60 pagi hari.</p>
+          </article>
+          <!-- Kintamani -->
+          <article class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition border border-coffee-200/80 relative overflow-hidden group">
+            <div class="absolute top-0 left-0 right-0 h-2 bg-amber-400"></div>
+            <h3 class="font-serif font-bold text-xl text-coffee-900 mb-1 mt-2">Kintamani, Bali</h3>
+            <div class="text-xs font-mono text-coffee-600 mb-4 bg-coffee-50 inline-block px-2.5 py-1 rounded-md">1.200–1.600 mdpl · Honey</div>
+            <p class="text-coffee-700 text-sm leading-relaxed">Jeruk, bunga, dan asam yang bersih. Kami sangrai paling ringan supaya aromanya terjaga utuh.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Morning Happy / Gallery Section -->
+    <section class="py-20 bg-[#F5EFE6]" id="morning">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <p class="text-xs uppercase tracking-widest text-coffee-600 font-bold mb-2">Morning Special</p>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-coffee-900">Morning Happy — Mulai Hari Ini</h2>
+          </div>
+          <p class="text-coffee-700 max-w-md mt-4 md:mt-0 text-sm">
+            Semangat pagi lewat aroma kopi segar yang diseduh hangat langsung di kedai kami.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white rounded-3xl p-4 shadow-sm border border-coffee-200/70 group">
+            <div class="aspect-square rounded-2xl overflow-hidden mb-4 bg-coffee-200">
+              <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80" alt="Coffee 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            </div>
+            <h3 class="font-serif font-bold text-base text-coffee-900">Caffè Macchiato</h3>
+            <p class="text-xs text-coffee-600 mb-3">Espresso dengan foam lembut.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-coffee-800">Rp 28.000</span>
+              <a href="#kunjungi" class="text-xs bg-coffee-100 hover:bg-coffee-800 hover:text-white px-3 py-1.5 rounded-full transition font-medium">Pesan</a>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-3xl p-4 shadow-sm border border-coffee-200/70 group">
+            <div class="aspect-square rounded-2xl overflow-hidden mb-4 bg-coffee-200">
+              <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=600&q=80" alt="Coffee 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            </div>
+            <h3 class="font-serif font-bold text-base text-coffee-900">Cappuccino Classic</h3>
+            <p class="text-xs text-coffee-600 mb-3">Perpaduan espresso & susu.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-coffee-800">Rp 32.000</span>
+              <a href="#kunjungi" class="text-xs bg-coffee-100 hover:bg-coffee-800 hover:text-white px-3 py-1.5 rounded-full transition font-medium">Pesan</a>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-3xl p-4 shadow-sm border border-coffee-200/70 group">
+            <div class="aspect-square rounded-2xl overflow-hidden mb-4 bg-coffee-200">
+              <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80" alt="Coffee 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            </div>
+            <h3 class="font-serif font-bold text-base text-coffee-900">Caffè Mocha</h3>
+            <p class="text-xs text-coffee-600 mb-3">Sentuhan cokelat pilihan.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-coffee-800">Rp 35.000</span>
+              <a href="#kunjungi" class="text-xs bg-coffee-100 hover:bg-coffee-800 hover:text-white px-3 py-1.5 rounded-full transition font-medium">Pesan</a>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-3xl p-4 shadow-sm border border-coffee-200/70 group">
+            <div class="aspect-square rounded-2xl overflow-hidden mb-4 bg-coffee-200">
+              <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80" alt="Coffee 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            </div>
+            <h3 class="font-serif font-bold text-base text-coffee-900">Double Shot Latte</h3>
+            <p class="text-xs text-coffee-600 mb-3">Lebih kuat & berasa.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-coffee-800">Rp 36.000</span>
+              <a href="#kunjungi" class="text-xs bg-coffee-100 hover:bg-coffee-800 hover:text-white px-3 py-1.5 rounded-full transition font-medium">Pesan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proses Sangrai Section -->
+    <section class="py-20 bg-coffee-900 text-white" id="proses">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <p class="text-xs uppercase tracking-widest text-amber-300 font-bold mb-2">Proses</p>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold">Dua belas menit di dalam drum.</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <ol class="space-y-6">
+            <li class="flex space-x-4 items-start bg-white/5 p-5 rounded-2xl border border-white/10">
+              <span class="w-8 h-8 rounded-full bg-amber-400 text-coffee-950 font-bold flex items-center justify-center shrink-0">1</span>
+              <div>
+                <h4 class="font-serif font-bold text-lg text-amber-200">coffee bean hijau masuk drum</h4>
+                <p class="text-xs text-coffee-200 mt-1">Drum dipanaskan sampai 200°C sebelum coffee bean dimasukkan ke dalam.</p>
+              </div>
+            </li>
+            <li class="flex space-x-4 items-start bg-white/5 p-5 rounded-2xl border border-white/10">
+              <span class="w-8 h-8 rounded-full bg-amber-400 text-coffee-950 font-bold flex items-center justify-center shrink-0">2</span>
+              <div>
+                <h4 class="font-serif font-bold text-lg text-amber-200">Pengeringan dan pencokelatan</h4>
+                <p class="text-xs text-coffee-200 mt-1">coffee bean menguning, lalu berubah warna menjadi cokelat sekitar menit ke-5.</p>
+              </div>
+            </li>
+            <li class="flex space-x-4 items-start bg-white/5 p-5 rounded-2xl border border-white/10">
+              <span class="w-8 h-8 rounded-full bg-amber-400 text-coffee-950 font-bold flex items-center justify-center shrink-0">3</span>
+              <div>
+                <h4 class="font-serif font-bold text-lg text-amber-200">Letupan pertama (First Crack)</h4>
+                <p class="text-xs text-coffee-200 mt-1">Terdengar sekitar menit ke-9 pada suhu 196°C. Di sinilah tingkat sangrai mulai ditentukan.</p>
+              </div>
+            </li>
+            <li class="flex space-x-4 items-start bg-white/5 p-5 rounded-2xl border border-white/10">
+              <span class="w-8 h-8 rounded-full bg-amber-400 text-coffee-950 font-bold flex items-center justify-center shrink-0">4</span>
+              <div>
+                <h4 class="font-serif font-bold text-lg text-amber-200">Turun dan istirahat (Degassing)</h4>
+                <p class="text-xs text-coffee-200 mt-1">coffee bean didinginkan, lalu didiamkan 5–7 hari agar gas CO₂ keluar sebelum diseduh.</p>
+              </div>
+            </li>
+          </ol>
+
+          <div class="bg-coffee-950 p-6 rounded-3xl border border-white/10 shadow-2xl">
+            <h3 class="font-serif font-bold text-lg mb-4 text-amber-200">Kurva Suhu Sangrai (12 Menit)</h3>
+            <svg class="w-full h-auto" viewBox="0 0 640 280" role="img" aria-label="Grafik suhu sangrai">
+              <line x1="40" y1="220" x2="620" y2="220" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <line x1="40" y1="150" x2="620" y2="150" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <line x1="40" y1="80" x2="620" y2="80" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <path d="M40 200 C 100 220, 150 150, 200 130 S 400 70, 600 50" fill="none" stroke="#F59E0B" stroke-width="3"/>
+              <circle cx="200" cy="130" r="5" fill="#F59E0B"/>
+              <circle cx="450" cy="70" r="5" fill="#F59E0B"/>
+              <text x="210" y="125" fill="#E8DFD8" font-size="11">Titik Balik 95°C</text>
+              <text x="460" y="65" fill="#E8DFD8" font-size="11">Letupan 1 · 196°C</text>
+            </svg>
+            <p class="text-xs text-coffee-300 mt-4 text-center">Profil sangrai Flores Bajawa, tingkat medium (5 kg/batch).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visit Us & Order Section -->
+    <section class="py-20 bg-coffee-50" id="kunjungi">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-6 space-y-6">
+            <p class="text-xs uppercase tracking-widest text-coffee-600 font-bold">Kunjungi Kedai</p>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-coffee-900">Duduk dekat mesin sangrai.</h2>
+            <p class="text-coffee-700 text-sm leading-relaxed">
+              Nikmati secangkir kopi segar sambil mencium aroma coffee bean kopi yang baru disangrai hari ini di kedai kami.
+            </p>
+
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-coffee-200/80 space-y-4">
+              <h3 class="font-serif font-bold text-lg text-coffee-900">Jam Operasional</h3>
+              <dl class="space-y-2 text-sm text-coffee-700">
+                <div class="flex justify-between py-1 border-b border-coffee-100"><dt>Senin – Jumat</dt><dd class="font-mono font-semibold">07.00 – 21.00</dd></div>
+                <div class="flex justify-between py-1 border-b border-coffee-100"><dt>Sabtu</dt><dd class="font-mono font-semibold">08.00 – 22.00</dd></div>
+                <div class="flex justify-between py-1"><dt>Minggu</dt><dd class="font-mono font-semibold">08.00 – 18.00</dd></div>
+              </dl>
+              <div class="pt-2 text-xs text-coffee-600 font-medium">
+                📍 Jl. Contoh Raya No. 12 (Lokasi kedai & roastery utama)
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6">
+            <form id="order" class="bg-white p-8 sm:p-10 rounded-3xl shadow-xl border border-coffee-200/80 space-y-6" novalidate>
+              <h3 class="text-2xl font-serif font-bold text-coffee-900">Pesan coffee bean untuk dibawa pulang</h3>
+              
+              <div class="space-y-2">
+                <label for="nama" class="block text-xs font-bold uppercase tracking-wider text-coffee-800">Nama</label>
+                <input id="nama" type="text" placeholder="Nama lengkap kamu" autocomplete="name" class="w-full px-4 py-3 rounded-2xl border border-coffee-200 focus:outline-none focus:ring-2 focus:ring-coffee-800 text-sm bg-coffee-50/50">
+              </div>
+
+              <div class="space-y-2">
+                <label for="coffee bean-pilih" class="block text-xs font-bold uppercase tracking-wider text-coffee-800">Pilihan coffee bean Kopi</label>
+                <select id="coffee bean-pilih" class="w-full px-4 py-3 rounded-2xl border border-coffee-200 focus:outline-none focus:ring-2 focus:ring-coffee-800 text-sm bg-coffee-50/50">
+                  <option>Gayo, Aceh (medium-dark)</option>
+                  <option>Kalosi, Toraja (medium-dark)</option>
+                  <option selected>Bajawa, Flores (medium)</option>
+                  <option>Kintamani, Bali (light)</option>
+                </select>
+              </div>
+
+              <div class="space-y-2">
+                <label for="giling" class="block text-xs font-bold uppercase tracking-wider text-coffee-800">Tingkat Gilingan</label>
+                <select id="giling" class="w-full px-4 py-3 rounded-2xl border border-coffee-200 focus:outline-none focus:ring-2 focus:ring-coffee-800 text-sm bg-coffee-50/50">
+                  <option>coffee bean utuh (tanpa giling)</option>
+                  <option>Espresso (halus)</option>
+                  <option>V60 (sedang)</option>
+                  <option>Tubruk (kasar)</option>
+                </select>
+              </div>
+
+              <button class="w-full bg-coffee-900 hover:bg-coffee-800 text-white font-semibold py-3.5 rounded-full transition shadow-md" type="submit">
+                Kirim Pesanan
+              </button>
+              
+              <p class="text-xs text-coffee-500 text-center">Formulir ini adalah simulasi interaktif untuk tugas.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Tim Kami Section -->
+  <section class="py-20 bg-[#F5EFE6] border-t border-coffee-200/60" id="tim">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="text-xs uppercase tracking-widest text-coffee-600 font-bold mb-2">Kelompok Kami</p>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-coffee-900">Tim di Balik Karya Ini</h2>
+        <p class="text-coffee-700 mt-3 text-sm leading-relaxed">Kami adalah mahasiswa yang bersemangat — dan tentunya punya minuman favorit masing-masing! ☕🧋🍵</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+
+        <!-- 1. Fals Fadel Luneto — Butterscotch Sea Salt -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm hover:shadow-md transition border border-coffee-200/70 flex flex-col items-center text-center group">
+          <div class="w-28 h-28 mb-5 flex items-center justify-center">
+            <!-- SVG Butterscotch Sea Salt: tall glass with caramel & sea salt rim -->
+            <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" class="w-full h-full group-hover:scale-110 transition duration-300">
+              <!-- Glass body -->
+              <path d="M25 20 L20 100 Q20 110 30 110 L70 110 Q80 110 80 100 L75 20 Z" fill="#FDE8C8" stroke="#EDCB96" stroke-width="2"/>
+              <!-- Butterscotch liquid -->
+              <path d="M27 40 L23 100 Q23 107 30 107 L70 107 Q77 107 77 100 L73 40 Z" fill="#F0A847"/>
+              <!-- Caramel swirl -->
+              <path d="M35 55 Q50 48 65 55 Q50 62 35 55" fill="none" stroke="#C97A10" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M33 70 Q50 63 67 70 Q50 77 33 70" fill="none" stroke="#C97A10" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Sea salt rim (top dots) -->
+              <circle cx="30" cy="22" r="2.5" fill="#F9F0E0" stroke="#EDCB96" stroke-width="1"/>
+              <circle cx="40" cy="19" r="2" fill="#F9F0E0" stroke="#EDCB96" stroke-width="1"/>
+              <circle cx="50" cy="18" r="2.5" fill="#F9F0E0" stroke="#EDCB96" stroke-width="1"/>
+              <circle cx="60" cy="19" r="2" fill="#F9F0E0" stroke="#EDCB96" stroke-width="1"/>
+              <circle cx="70" cy="22" r="2.5" fill="#F9F0E0" stroke="#EDCB96" stroke-width="1"/>
+              <!-- Whipped cream top -->
+              <ellipse cx="50" cy="20" rx="26" ry="8" fill="#FFF5E4" stroke="#EDCB96" stroke-width="1.5"/>
+              <path d="M30 20 Q35 12 40 20 Q45 12 50 20 Q55 12 60 20 Q65 12 70 20" fill="#FFF8EF" stroke="#EDCB96" stroke-width="1"/>
+              <!-- Straw -->
+              <rect x="55" y="5" width="5" height="55" rx="2.5" fill="#F5C842" opacity="0.85"/>
+            </svg>
+          </div>
+          <span class="inline-block bg-amber-100 text-amber-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">🧂 Butterscotch Sea Salt</span>
+          <h3 class="font-serif font-bold text-coffee-900 text-base leading-tight">Fals Fadel Luneto</h3>
+          <p class="text-xs text-coffee-500 font-mono mt-1">15201425013</p>
+        </div>
+
+        <!-- 2. Moh. Refan Laurestabo — Ichitan Brown Sugar -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm hover:shadow-md transition border border-coffee-200/70 flex flex-col items-center text-center group">
+          <div class="w-28 h-28 mb-5 flex items-center justify-center">
+            <!-- SVG Ichitan Brown Sugar: bottle shape with brown sugar layers -->
+            <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" class="w-full h-full group-hover:scale-110 transition duration-300">
+              <!-- Bottle body -->
+              <path d="M38 30 L35 105 Q35 112 50 112 Q65 112 65 105 L62 30 Z" fill="#EDD9B3" stroke="#C9A96E" stroke-width="2"/>
+              <!-- Brown sugar layer (bottom) -->
+              <path d="M36 80 L35 105 Q35 112 50 112 Q65 112 65 105 L64 80 Z" fill="#A0622A"/>
+              <!-- Tea layer (middle) -->
+              <path d="M36.5 50 L36 80 L64 80 L63.5 50 Z" fill="#D4874A"/>
+              <!-- Milk layer (top of liquid) -->
+              <path d="M37 38 L36.5 50 L63.5 50 L63 38 Z" fill="#F5E6CE"/>
+              <!-- Bottle neck -->
+              <rect x="42" y="15" width="16" height="16" rx="4" fill="#EDD9B3" stroke="#C9A96E" stroke-width="2"/>
+              <!-- Cap -->
+              <rect x="41" y="10" width="18" height="8" rx="4" fill="#C9A96E"/>
+              <!-- Brown sugar swirl decoration -->
+              <path d="M40 65 Q50 58 60 65" fill="none" stroke="#7A4010" stroke-width="2" stroke-linecap="round"/>
+              <!-- Label band -->
+              <rect x="35" y="55" width="30" height="3" rx="1.5" fill="#B87333" opacity="0.4"/>
+              <!-- Straw -->
+              <rect x="54" y="5" width="4" height="50" rx="2" fill="#8FC9E8" opacity="0.85"/>
+            </svg>
+          </div>
+          <span class="inline-block bg-amber-50 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">🧋 Ichitan Brown Sugar</span>
+          <h3 class="font-serif font-bold text-coffee-900 text-base leading-tight">Moh. Refan Laurestabo</h3>
+          <p class="text-xs text-coffee-500 font-mono mt-1">15201425021</p>
+        </div>
+
+        <!-- 3. Ridho Kadekoh — Cappuccino -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm hover:shadow-md transition border border-coffee-200/70 flex flex-col items-center text-center group">
+          <div class="w-28 h-28 mb-5 flex items-center justify-center">
+            <!-- SVG Cappuccino: classic mug with foam art -->
+            <svg viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg" class="w-full h-full group-hover:scale-110 transition duration-300">
+              <!-- Saucer -->
+              <ellipse cx="60" cy="100" rx="42" ry="8" fill="#E8D5C0" stroke="#C9A96E" stroke-width="1.5"/>
+              <!-- Mug body -->
+              <path d="M25 45 L28 88 Q28 96 60 96 Q92 96 92 88 L95 45 Z" fill="#F5E6D0" stroke="#C9A96E" stroke-width="2"/>
+              <!-- Coffee liquid -->
+              <path d="M29 60 L28 88 Q28 96 60 96 Q92 96 92 88 L91 60 Z" fill="#B07040"/>
+              <!-- Foam top -->
+              <ellipse cx="60" cy="47" rx="33" ry="12" fill="#FFF5E8" stroke="#E8D0B0" stroke-width="1.5"/>
+              <!-- Foam art - heart -->
+              <path d="M51 46 Q55 40 60 46 Q65 40 69 46 Q64 52 60 56 Q56 52 51 46 Z" fill="#C07840" opacity="0.7"/>
+              <!-- Mug handle -->
+              <path d="M92 55 Q108 55 108 70 Q108 85 92 85" fill="none" stroke="#C9A96E" stroke-width="5" stroke-linecap="round"/>
+              <!-- Steam lines -->
+              <path d="M48 28 Q44 20 48 12" fill="none" stroke="#D4A574" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+              <path d="M60 25 Q56 17 60 9" fill="none" stroke="#D4A574" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+              <path d="M72 28 Q68 20 72 12" fill="none" stroke="#D4A574" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+            </svg>
+          </div>
+          <span class="inline-block bg-orange-50 text-orange-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">☕ Cappuccino</span>
+          <h3 class="font-serif font-bold text-coffee-900 text-base leading-tight">Ridho Kadekoh</h3>
+          <p class="text-xs text-coffee-500 font-mono mt-1">15201425037</p>
+        </div>
+
+        <!-- 4. Sucilistiyawati Harun — Es Teh -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm hover:shadow-md transition border border-coffee-200/70 flex flex-col items-center text-center group">
+          <div class="w-28 h-28 mb-5 flex items-center justify-center">
+            <!-- SVG Es Teh: tall iced tea glass with ice cubes -->
+            <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" class="w-full h-full group-hover:scale-110 transition duration-300">
+              <!-- Glass body -->
+              <path d="M22 18 L18 100 Q18 112 50 112 Q82 112 82 100 L78 18 Z" fill="#E8F5D0" stroke="#A8CC70" stroke-width="2"/>
+              <!-- Tea liquid (amber-brown) -->
+              <path d="M25 35 L19 100 Q19 112 50 112 Q81 112 81 100 L75 35 Z" fill="#C8802A" opacity="0.75"/>
+              <!-- Light refraction in glass -->
+              <path d="M25 35 L23 80" stroke="#FFFFFF" stroke-width="3" opacity="0.25" stroke-linecap="round"/>
+              <!-- Ice cubes -->
+              <rect x="28" y="40" width="18" height="16" rx="4" fill="#D0EEFF" stroke="#A0CCEE" stroke-width="1.5" opacity="0.85"/>
+              <rect x="54" y="38" width="16" height="18" rx="4" fill="#D0EEFF" stroke="#A0CCEE" stroke-width="1.5" opacity="0.85"/>
+              <rect x="34" y="60" width="20" height="15" rx="4" fill="#D0EEFF" stroke="#A0CCEE" stroke-width="1.5" opacity="0.85"/>
+              <rect x="52" y="62" width="14" height="14" rx="4" fill="#D0EEFF" stroke="#A0CCEE" stroke-width="1.5" opacity="0.85"/>
+              <!-- Glass rim -->
+              <ellipse cx="50" cy="18" rx="28" ry="7" fill="#E8F5D0" stroke="#A8CC70" stroke-width="2"/>
+              <!-- Straw -->
+              <rect x="60" y="3" width="5" height="65" rx="2.5" fill="#F5A0A0" opacity="0.85"/>
+              <!-- Lemon slice hint -->
+              <ellipse cx="30" cy="20" rx="8" ry="4" fill="#FFF176" stroke="#F9D342" stroke-width="1" opacity="0.9"/>
+              <line x1="30" y1="16" x2="30" y2="24" stroke="#F9D342" stroke-width="0.8" opacity="0.7"/>
+              <line x1="22" y1="20" x2="38" y2="20" stroke="#F9D342" stroke-width="0.8" opacity="0.7"/>
+            </svg>
+          </div>
+          <span class="inline-block bg-green-50 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">🍋 Es Teh</span>
+          <h3 class="font-serif font-bold text-coffee-900 text-base leading-tight">Sucilistiyawati Harun</h3>
+          <p class="text-xs text-coffee-500 font-mono mt-1">15201425029</p>
+        </div>
+
+        <!-- 5. Amelia Ilahude — Taro -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm hover:shadow-md transition border border-coffee-200/70 flex flex-col items-center text-center group">
+          <div class="w-28 h-28 mb-5 flex items-center justify-center">
+            <!-- SVG Taro: boba cup with purple taro & tapioca pearls -->
+            <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" class="w-full h-full group-hover:scale-110 transition duration-300">
+              <!-- Cup body (trapezoidal) -->
+              <path d="M20 30 L22 100 Q22 112 50 112 Q78 112 78 100 L80 30 Z" fill="#EED5F5" stroke="#C9A0DC" stroke-width="2"/>
+              <!-- Taro liquid (purple) -->
+              <path d="M22 45 L22 100 Q22 112 50 112 Q78 112 78 100 L78 45 Z" fill="#C084D4" opacity="0.75"/>
+              <!-- Tapioca pearls at bottom -->
+              <circle cx="38" cy="98" r="5.5" fill="#4A2D5A" opacity="0.85"/>
+              <circle cx="50" cy="100" r="5.5" fill="#4A2D5A" opacity="0.85"/>
+              <circle cx="62" cy="98" r="5.5" fill="#4A2D5A" opacity="0.85"/>
+              <circle cx="43" cy="90" r="5" fill="#4A2D5A" opacity="0.75"/>
+              <circle cx="57" cy="90" r="5" fill="#4A2D5A" opacity="0.75"/>
+              <!-- Milk foam top layer -->
+              <path d="M22 45 L78 45 Q78 38 50 36 Q22 38 22 45 Z" fill="#F0DDFA"/>
+              <!-- Sealed lid -->
+              <ellipse cx="50" cy="30" rx="30" ry="9" fill="#DDB8ED" stroke="#C9A0DC" stroke-width="2"/>
+              <!-- Dome bump -->
+              <path d="M35 30 Q50 23 65 30" fill="none" stroke="#C9A0DC" stroke-width="1.5" opacity="0.6"/>
+              <!-- Straw (fat boba straw) -->
+              <rect x="45" y="2" width="7" height="55" rx="3.5" fill="#A855C8" opacity="0.9"/>
+              <!-- Sparkle decoration -->
+              <circle cx="75" cy="55" r="2" fill="#E8A0F0" opacity="0.7"/>
+              <circle cx="25" cy="65" r="1.5" fill="#E8A0F0" opacity="0.5"/>
+              <circle cx="78" cy="75" r="1.5" fill="#C9A0DC" opacity="0.6"/>
+            </svg>
+          </div>
+          <span class="inline-block bg-purple-50 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">🧋 Taro</span>
+          <h3 class="font-serif font-bold text-coffee-900 text-base leading-tight">Amelia Ilahude</h3>
+          <p class="text-xs text-coffee-500 font-mono mt-1">15201425027</p>
+        </div>
+
+      </div>
+
+      <!-- Decorative bottom wave -->
+      <div class="mt-14 text-center">
+        <p class="text-coffee-400 text-xs italic">"Setiap tegukan punya ceritanya sendiri — begitu pula setiap kode yang kami tulis." 🍵</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-coffee-950 text-coffee-300 py-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-xs space-y-4 md:space-y-0">
+      <div class="flex items-center space-x-2 text-white font-serif text-lg font-bold">
+        <span>☕ Sangrai Kopi</span>
+      </div>
+      <div>© 2026 Sangrai Kopi. Seluruh hak cipta dilindungi.</div>
+      <div>Situs contoh rancangan estetika kedai kopi lokal.</div>
+    </div>
+  </footer>
+<!-- menghubungkan ke Java script -->
+  <script src="script.js"></script>
+</body>
+</html>
