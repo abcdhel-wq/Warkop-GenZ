@@ -48,10 +48,19 @@
 
   <!-- Navbar -->
   <header class="fixed top-0 left-0 right-0 z-40 bg-[#F5EFE6]/90 backdrop-blur-md border-b border-coffee-200/50">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="#atas" class="flex items-center space-x-2 text-2xl font-serif font-bold text-coffee-900 tracking-tight">
-        <span class="w-8 h-8 rounded-full bg-coffee-800 flex items-center justify-center text-white text-sm font-sans">☕</span>
-        <span>Warkop GenZ</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+      <a href="#atas" class="flex items-center space-x-2 font-serif font-bold text-coffee-900 tracking-tight text-xl sm:text-2xl min-w-0">
+        <span class="w-8 h-8 rounded-full bg-coffee-800 flex items-center justify-center shrink-0">
+          <!-- SVG Coffee Cup Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+            <line x1="6" y1="2" x2="6" y2="4"/>
+            <line x1="10" y1="2" x2="10" y2="4"/>
+            <line x1="14" y1="2" x2="14" y2="4"/>
+          </svg>
+        </span>
+        <span class="truncate">Warkop GenZ</span>
       </a>
       
       <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-coffee-800">
@@ -83,34 +92,38 @@
 
   <!-- Hero Section -->
   <main id="atas">
-    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-coffee-900 text-white">
+    <section class="relative pt-28 pb-16 lg:pt-40 lg:pb-28 overflow-hidden bg-coffee-900 text-white min-h-[85vh] flex items-center">
       <!-- Background Image Overlay with Warm Coffee Theme -->
       <div class="absolute inset-0 opacity-40 mix-blend-overlay">
-        <img src="img/logo.png" style="height: 100vh;" alt="Coffee background" class="w-full h-full object-cover">
+        <img src="img/logo.png" alt="Coffee background" class="w-full h-full object-cover">
       </div>
       <div class="absolute inset-0 bg-gradient-to-r from-coffee-950 via-coffee-900/80 to-transparent"></div>
 
-      <div class="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center" style="display:flex; gap:10rem;">
-        <div class="lg:col-span-7 space-y-6">
+      <div class="relative max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <!-- Text Content -->
+        <div class="space-y-6">
           <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-amber-200 border border-white/10">
             <span>✨ Sangrai Kecil · 5 kg per batch · Indonesia</span>
           </div>
-          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-extrabold tracking-tight leading-tight">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-extrabold tracking-tight leading-tight">
             Savor the <span class="italic font-normal text-amber-200">Perfect Brew!</span>
           </h1>
-          <p class="text-coffee-200 text-lg sm:text-xl font-light max-w-xl leading-relaxed">
+          <p class="text-coffee-200 text-base sm:text-lg font-light max-w-xl leading-relaxed">
             Kami menyangrai coffee bean kopi pilihan dari Gayo, Toraja, Flores, dan Kintamani setiap pagi, lalu menyeduhnya di kedai yang sama. Segar, otentik, dan penuh cerita.
           </p>
-          <div class="flex flex-wrap gap-4 pt-2">
-            <a href="#menu" class="bg-amber-100 hover:bg-white text-coffee-900 px-8 py-3.5 rounded-full font-semibold transition shadow-lg transform hover:-translate-y-0.5">
+          <div class="flex flex-wrap gap-3 pt-2">
+            <a href="#menu" class="bg-amber-100 hover:bg-white text-coffee-900 px-6 py-3 rounded-full font-semibold transition shadow-lg transform hover:-translate-y-0.5 text-sm sm:text-base">
               Lihat Menu
             </a>
-            <a href="#proses" class="border border-white/30 hover:bg-white/10 text-white px-8 py-3.5 rounded-full font-semibold transition">
+            <a href="#proses" class="border border-white/30 hover:bg-white/10 text-white px-6 py-3 rounded-full font-semibold transition text-sm sm:text-base">
               Cara Menyangrai
             </a>
           </div>
         </div>
-        <img src="img/logo.png" alt="Latte Art Cup" style="width: 35%; height: 100 pixel; " class="w-full h-full object-cover hover:scale-105 transition duration-700">
+        <!-- Hero Image — hidden on mobile, shown on lg+ -->
+        <div class="hidden lg:flex justify-center items-center">
+          <img src="img/logo.png" alt="Latte Art Cup" class="w-full max-w-sm xl:max-w-md object-contain hover:scale-105 transition duration-700 drop-shadow-2xl">
+        </div>
       </div>
         
             
@@ -125,33 +138,45 @@
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div class="bg-coffee-50 hover:bg-white p-6 rounded-3xl text-center transition shadow-sm hover:shadow-md border border-coffee-200/60 group">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-coffee-200/50 flex items-center justify-center text-3xl group-hover:scale-110 transition">
-              ☕
+          <!-- Espresso -->
+          <div class="bg-coffee-50 hover:bg-white rounded-3xl text-center transition shadow-sm hover:shadow-md border border-coffee-200/60 group overflow-hidden">
+            <div class="overflow-hidden rounded-t-3xl">
+              <img src="img/espresso.jpg" alt="Espresso" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
             </div>
-            <h3 class="font-serif font-bold text-lg mb-1 text-coffee-900">Espresso</h3>
-            <p class="text-xs text-coffee-600">Pekat, berkarakter, dan nikmat seketika.</p>
+            <div class="p-5">
+              <h3 class="font-serif font-bold text-lg mb-1 text-coffee-900">Espresso</h3>
+              <p class="text-xs text-coffee-600">Pekat, berkarakter, dan nikmat seketika.</p>
+            </div>
           </div>
-          <div class="bg-coffee-50 hover:bg-white p-6 rounded-3xl text-center transition shadow-sm hover:shadow-md border border-coffee-200/60 group">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-coffee-200/50 flex items-center justify-center text-3xl group-hover:scale-110 transition">
-              🥛
+          <!-- Latte -->
+          <div class="bg-coffee-50 hover:bg-white rounded-3xl text-center transition shadow-sm hover:shadow-md border border-coffee-200/60 group overflow-hidden">
+            <div class="overflow-hidden rounded-t-3xl">
+              <img src="img/latte.jpg" alt="Latte" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
             </div>
-            <h3 class="font-serif font-bold text-lg mb-1 text-coffee-900">Latte</h3>
-            <p class="text-xs text-coffee-600">Paduan espresso dan susu segar lembut.</p>
+            <div class="p-5">
+              <h3 class="font-serif font-bold text-lg mb-1 text-coffee-900">Latte</h3>
+              <p class="text-xs text-coffee-600">Paduan espresso dan susu segar lembut.</p>
+            </div>
           </div>
-          <div class="bg-coffee-50 hover:bg-white p-6 rounded-3xl text-center transition shadow-sm hover:shadow-md border border-coffee-200/60 group">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-coffee-200/50 flex items-center justify-center text-3xl group-hover:scale-110 transition">
-              🍵
+          <!-- V60 Manual -->
+          <div class="bg-coffee-50 hover:bg-white rounded-3xl text-center transition shadow-sm hover:shadow-md border border-coffee-200/60 group overflow-hidden">
+            <div class="overflow-hidden rounded-t-3xl">
+              <img src="img/v60.jpg" alt="V60 Manual" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
             </div>
-            <h3 class="font-serif font-bold text-lg mb-1 text-coffee-900">V60 Manual</h3>
-            <p class="text-xs text-coffee-600">Clean cup, menonjolkan aroma buah & bunga.</p>
+            <div class="p-5">
+              <h3 class="font-serif font-bold text-lg mb-1 text-coffee-900">V60 Manual</h3>
+              <p class="text-xs text-coffee-600">Clean cup, menonjolkan aroma buah & bunga.</p>
+            </div>
           </div>
-          <div class="bg-coffee-50 hover:bg-white p-6 rounded-3xl text-center transition shadow-sm hover:shadow-md border border-coffee-200/60 group">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-coffee-200/50 flex items-center justify-center text-3xl group-hover:scale-110 transition">
-              🧊
+          <!-- Cold Brew -->
+          <div class="bg-coffee-50 hover:bg-white rounded-3xl text-center transition shadow-sm hover:shadow-md border border-coffee-200/60 group overflow-hidden">
+            <div class="overflow-hidden rounded-t-3xl">
+              <img src="img/coldbrew.jpg" alt="Cold Brew" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
             </div>
-            <h3 class="font-serif font-bold text-lg mb-1 text-coffee-900">Cold Brew</h3>
-            <p class="text-xs text-coffee-600">Diseduh dingin belasan jam, menyegarkan hari.</p>
+            <div class="p-5">
+              <h3 class="font-serif font-bold text-lg mb-1 text-coffee-900">Cold Brew</h3>
+              <p class="text-xs text-coffee-600">Diseduh dingin belasan jam, menyegarkan hari.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -637,9 +662,17 @@
   <footer class="bg-coffee-950 text-coffee-300 py-12 border-t border-white/10">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-xs space-y-4 md:space-y-0">
       <div class="flex items-center space-x-2 text-white font-serif text-lg font-bold">
-        <span>☕ Sangrai Kopi</span>
+        <!-- SVG Coffee Cup Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
+          <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+          <line x1="6" y1="2" x2="6" y2="4"/>
+          <line x1="10" y1="2" x2="10" y2="4"/>
+          <line x1="14" y1="2" x2="14" y2="4"/>
+        </svg>
+        <span>Warkop GenZ</span>
       </div>
-      <div>© 2026 Sangrai Kopi. Seluruh hak cipta dilindungi.</div>
+      <div>© 2026 Warkop GenZ. Seluruh hak cipta dilindungi.</div>
       <div>Situs contoh rancangan estetika kedai kopi lokal.</div>
     </div>
   </footer>

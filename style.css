@@ -1,3 +1,6 @@
+/* ============================================
+   Base Typography
+   ============================================ */
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: #FDFBF7;
@@ -6,4 +9,111 @@ body {
 
 h1, h2, h3, h4 {
   font-family: 'Playfair Display', serif;
+}
+
+/* ============================================
+   Scroll offset for fixed navbar
+   ============================================ */
+html {
+  scroll-padding-top: 5rem; /* 80px — tinggi navbar */
+}
+
+/* ============================================
+   Navbar — Mobile improvements
+   ============================================ */
+#mobile-menu a {
+  display: block;
+  padding: 0.625rem 0;
+  font-size: 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+#mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+/* ============================================
+   Category cards — responsive image height
+   ============================================ */
+@media (max-width: 639px) {
+  /* 2-col grid on mobile: shorter images agar card tidak terlalu tinggi */
+  .grid .overflow-hidden img.object-cover {
+    height: 9rem; /* 144px */
+  }
+}
+
+/* ============================================
+   Features category card text — clamp on mobile
+   ============================================ */
+@media (max-width: 639px) {
+  .grid .overflow-hidden + div h3 {
+    font-size: 0.95rem;
+  }
+  .grid .overflow-hidden + div p {
+    font-size: 0.7rem;
+  }
+}
+
+/* ============================================
+   Tab buttons — horizontal scroll on tiny screens
+   ============================================ */
+[role="tablist"] {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex-wrap: nowrap;
+  padding-bottom: 4px;
+}
+[role="tablist"]::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  [role="tablist"] {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+}
+
+/* ============================================
+   Form inputs — prevent iOS zoom (min 16px)
+   ============================================ */
+input, select, textarea {
+  font-size: 1rem;
+}
+
+/* ============================================
+   Hero section — ensure bg image covers fully
+   ============================================ */
+.min-h-\[85vh\] .absolute.inset-0 img {
+  height: 100%;
+  min-height: 85vh;
+}
+
+/* ============================================
+   Roast SVG chart — responsive on mobile
+   ============================================ */
+@media (max-width: 767px) {
+  svg[viewBox="0 0 640 280"] {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ============================================
+   Team grid — center single card on odd last row
+   ============================================ */
+@media (max-width: 639px) {
+  #tim .grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* ============================================
+   Footer — stack on small screens, space evenly
+   ============================================ */
+@media (max-width: 767px) {
+  footer > div {
+    text-align: center;
+    gap: 0.75rem;
+  }
 }
